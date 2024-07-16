@@ -1,21 +1,41 @@
-import { Form, useNavigation } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SearchForm = () => {
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
+const SearchForm = ({ searchTerm }) => {
+  const [search, setSearch] = useState(searchTerm || "");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/?search=${search}`);
+    // ここでスクロール位置を調整
+    setTimeout(() => {
+      document
+        .getElementById("search-form")
+        .scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
   return (
-    <Form className="form flex flex-col items-center">
-      <div className="text-white mb-2">What would you like to drink?</div>
+    <form
+      id="search-form"
+      className="form flex flex-col items-center"
+      onSubmit={handleSubmit}
+    >
+      <div className="text-white mb-2 whitespace-nowrap">
+        What would you like to drink?
+      </div>
       <input
         type="search"
         name="search"
         className="form-input mb-2"
-        defaultValue="martini"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
-      <button type="submit" className="btn" disabled={isSubmitting}>
-        {isSubmitting ? "searching..." : "search"}
+      <button type="submit" className="btn">
+        search
       </button>
-    </Form>
+    </form>
   );
 };
 
