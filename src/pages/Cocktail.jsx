@@ -49,48 +49,38 @@ const Cocktail = () => {
   return (
     <Wrapper>
       <header>
-        <button onClick={() => navigate(-1)} className="btn">
-          back home
-        </button>
-        <h3>{name}</h3>
+        <h3 className="name">{name}</h3>
       </header>
       <div className="drink">
         <img src={image} alt={name} className="img" />
         <div className="drink-info">
-          <p>
-            <span className="drink-data">name :</span>
-            {name}
-          </p>
-          <p>
-            <span className="drink-data">category :</span>
-            {category}
-          </p>
-          <p>
-            <span className="drink-data">info :</span>
-            {info}
-          </p>
-          <p>
-            <span className="drink-data">glass :</span>
-            {glass}
-          </p>
-          <p>
-            <span className="drink-data">ingredients :</span>
-            {validIngredients.map((item, index) => {
-              return (
-                <span className="ing" key={item}>
-                  {item}
-                  {index < validIngredients.length - 1 ? "," : ""}
-                </span>
-              );
-            })}
-          </p>
-          <p>
-            <span className="drink-data">instructions :</span>
-            {instructions}
-          </p>
+          <div className="ingredients">
+            <p>
+              <span className="drink-data">ingredients</span>
+            </p>
+            {validIngredients.map((item) => (
+              <span className="ing" key={item}>
+                {item}
+                <br />
+              </span>
+            ))}
+          </div>
+          <div className="vertical-line"></div>
+          <div className="instructions">
+            <p>
+              <span className="drink-data">instructions</span>
+            </p>
+            <p>{instructions}</p>
+          </div>
         </div>
+      </div>
+      <div className="btn-container">
+        <button onClick={() => navigate(-1)} className="btn">
+          back home
+        </button>
       </div>
     </Wrapper>
   );
 };
+
 export default Cocktail;

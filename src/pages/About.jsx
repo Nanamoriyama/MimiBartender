@@ -1,13 +1,31 @@
+import React from "react";
 import Wrapper from "../assets/wrappers/AboutPage";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // カルーセルのスタイルをインポート
 import mimiimage from "../assets/mimi.jpg";
 import cocktail1image from "../assets/cocktail1.jpg";
+import a1image from "../assets/a1.jpg";
+import a2image from "../assets/a2.jpg";
+import a3image from "../assets/a3.jpg";
+import a4image from "../assets/a4.jpg";
+import a5image from "../assets/a5.jpg";
+
+const carouselImages = [
+  a1image,
+  a2image,
+  a3image,
+  a4image,
+  a5image,
+  mimiimage,
+  cocktail1image,
+];
 
 const About = () => {
   return (
     <Wrapper>
-      <h3 className="text-stone-400">About Me</h3>
-      <div className="">
-        <div className="">
+      <h3>About Me</h3>
+      <div>
+        <div>
           <p>
             Hey there! I’m Mimi, your go-to private bartender here in the
             Netherlands. <br />
@@ -25,19 +43,25 @@ const About = () => {
             <br />
             Got questions or want to chat more? Drop me a line anytime! <br />
             <br />
-            <span className="flex justify-end">All the best, Mimi</span>
+            <span>All the best, Mimi</span>
           </p>
         </div>
-        <div className="flex w-28 lg:w-48">
-          <img src={mimiimage} alt="../assets/mimi.jpg" className="" />
-          <img
-            src={cocktail1image}
-            alt="../assets/cocktail1.jpg"
-            className=""
-          />
+        <div className="mt-6">
+          <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
+            {carouselImages.map((image) => (
+              <div key={image} className="carousel-item">
+                <img
+                  src={image}
+                  alt="carousel"
+                  className="max-h-48 w-auto object-contain mx-auto"
+                />
+              </div>
+            ))}
+          </Carousel>
         </div>
       </div>
     </Wrapper>
   );
 };
+
 export default About;

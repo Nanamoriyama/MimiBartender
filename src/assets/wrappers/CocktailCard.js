@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 const Wrapper = styled.article`
   background: var(--white);
   box-shadow: var(--shadow-2);
@@ -16,6 +17,11 @@ const Wrapper = styled.article`
   }
   .footer {
     padding: 1.5rem;
+    text-align: center; /* 文字を中央に配置 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     h4,
     h5 {
       margin-bottom: 0.5rem;
@@ -26,6 +32,9 @@ const Wrapper = styled.article`
     p {
       margin-bottom: 1rem;
       color: var(--grey-400);
+    }
+    .btn {
+      margin-top: 1rem;
     }
   }
 `;
