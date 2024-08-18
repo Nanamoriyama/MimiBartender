@@ -15,6 +15,8 @@ import {
 import { loader as landingLoader } from "./pages/Landing";
 import { loader as singleCocktailLoader } from "./pages/Cocktail";
 
+import Footer from "./components/Footer";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -55,6 +57,12 @@ const router = createBrowserRouter([
         path: "photo",
         element: <Photo />,
       },
+
+      {
+        path: "footer",
+        element: <Footer />,
+      },
+
     ],
   },
 ]);

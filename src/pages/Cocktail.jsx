@@ -1,9 +1,11 @@
 import { useLoaderData, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Wrapper from "../assets/wrappers/CocktailPage";
+
+import { useQuery } from "@tanstack/react-query";
+
 const singleCocktailUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
-import { useQuery } from "@tanstack/react-query";
 
 const singleCocktailQuery = (id) => {
   return {
@@ -49,21 +51,32 @@ const Cocktail = () => {
   return (
     <Wrapper>
       <header>
-        <h3 className="name">{name}</h3>
+        <h3 className="name mt-10">{name}</h3>
       </header>
       <div className="drink">
-        <img src={image} alt={name} className="img" />
+        <div className="flex justify-center items-center p-10">
+          <img
+            src={image}
+            alt={name}
+            className="max-w-xs max-h-xs object-contain"
+          />
+        </div>
+
         <div className="drink-info">
-          <div className="ingredients">
+          <div className="ingredients pl-4">
             <p>
               <span className="drink-data">ingredients</span>
             </p>
-            {validIngredients.map((item) => (
-              <span className="ing" key={item}>
-                {item}
-                <br />
-              </span>
-            ))}
+            <div className="text-center">
+              {" "}
+              {/* ここでテキストを中央揃え */}
+              {validIngredients.map((item) => (
+                <span className="ing block" key={item}>
+                  {item}
+                  <br />
+                </span>
+              ))}
+            </div>
           </div>
           <div className="vertical-line"></div>
           <div className="instructions">

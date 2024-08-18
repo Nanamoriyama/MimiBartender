@@ -1,10 +1,16 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap");
 
 body {
   font-family: "Playfair Display", serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  width: 100%;
+
 }
 *,
 ::after,
@@ -71,7 +77,9 @@ html {
 }
 
 body {
-  background: rgb(70, 69, 69);
+
+  background: rgb(28, 27, 27);
+
   font-weight: 400;
   line-height: 1;
   color: var(--textColor);
@@ -224,9 +232,8 @@ ul {
 .form-textarea {
   width: 100%;
   padding: 0.375rem 0.75rem;
-  border-radius: var(--borderRadius);
-  background: var(--backgroundColor);
-  border: 1px solid var(--grey-200);
+
+
 }
 
 .form-row {
@@ -238,7 +245,9 @@ ul {
 }
 ::placeholder {
   font-family: inherit;
-  color: var(--grey-400);
+
+  color: transparent;
+
 }
 .form-alert {
   color: var(--red-dark);
@@ -276,14 +285,126 @@ ul {
   margin-top: 1rem;
 }
 
-/* 
-============= 
-PROJECT CSS
-=============
-*/
-.page {
-  width: var(--view-width);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 5rem 2rem;
+
+@keyframes wave-animation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the movement if needed */
+  }
+}
+.wavy-text span {
+  display: inline-block;
+  font-size: 1.5rem; /* Default font size for mobile */
+  animation: wave-animation 3s infinite ease-in-out; /* Animation duration */
+  animation-delay: calc(0.2s * var(--i)); /* Delay between characters */
+  color: #fff; /* Text color */
+}
+
+/* Larger font size for desktop screens */
+@media (min-width: 1024px) {
+  .wavy-text span {
+    font-size: 4rem; /* Larger font size for desktop */
+  }
+}
+
+.parallax {
+  background-image: url("/src/assets/hero.jpg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease-out;
+}
+
+.parallax::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+.parallax-text {
+  font-size: 6rem;
+  color: rgba(255, 255, 255, 1);
+  transition: color 0.5s ease-out, transform 0.5s ease-out, filter 0.5s ease-out;
+  z-index: 2;
+  position: relative;
+}
+
+/* モバイルサイズでフォントサイズを小さくする */
+@media (max-width: 768px) {
+  .parallax-text {
+    font-size: 3rem; /* フォントサイズを小さく調整 */
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-text {
+    font-size: 2rem; /* フォントサイズをさらに小さく調整 */
+  }
+}
+
+.hidden-text {
+  color: rgba(255, 255, 255, 0);
+  transform: translateY(-20px);
+  filter: blur(5px);
+}
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 500px; /* Adjust as needed */
+  background-image: url("/src/assets/landing.jpg"); /* Set the image as background */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* To enable parallax effect */
+  transition: transform 0.5s ease-out;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.parallax-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  ); /* Gradient overlay */
+  z-index: 1;
+}
+
+.form-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 500px; /* Match the height of the parallax-container */
+  z-index: 3; /* Ensure it is on top of the background */
+}
+
+.form {
+  width: 50%; /* Make the form smaller */
+  padding: 20px;
+  /* Semi-transparent background */
+}
+
+.form-input {
+  width: 70%;
+}
+.btn {
+  width: 30;
+
 }

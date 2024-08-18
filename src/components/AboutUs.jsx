@@ -1,39 +1,44 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import martini from "../assets/hero2.jpg";
+
 const AboutUs = () => {
   return (
-    <div className="">
-      <div className="w-full h-70 bg-stone-300 text-bold leading-9 px-6 py-6 font-serif text-center grid md:grid-cols-2 items-center xl:leading-10">
-        <div>
-          <h3 className="py-10 mt-0">What we offer</h3>
-          <p className="">
+    <>
+      <div className="w-full text-bold leading-9 p-18 mt-20 font-serif text-center grid md:grid-cols-2 items-center xl:leading-10">
+        <div className="text-stone-300 md:max-w-md mx-auto text-center">
+          <h3 className="py-8 mt-0 text-xl md:text-3xl">What we offer</h3>
+          <p className="text-base p-10 md:text-xl md:p-6">
             Bartending Mimi33 offers a mobile bartending service based in the
             Netherlands. <br />
-            We provide bartending services for private and public events. The
-            bartender is skilled bartenders in mixology, capable of expertly
-            crafting classic cocktails or crafting delightful, innovative taste
-            to your liking.
             <br />
-            <span className="">
+            We provide bartending services for private and public events. The
+            bartender is skilled in mixology, capable of expertly crafting
+            classic cocktails or crafting delightful, innovative taste to your
+            liking.
+            <br />
+            <br />
+            <span>
               More about the bartender
               <NavLink
                 to="/about"
-                className="cursor-pointer font-bold text-orange-400 px-1"
+                className="cursor-pointer font-base text-orange-400 border border-stone-300 p-2 m-2"
               >
                 Here
               </NavLink>
             </span>
           </p>
         </div>
-        <div className="md:flex items-center">
+
+        <div className="md:flex items-center justify-center">
           <img
             src={martini}
-            className="h-62 w-54 flex display-block py-6 m-auto md:items-center lg:flex items-center"
+            className="max-w-full max-h-96 object-cover mx-auto"
+            alt="Martini"
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

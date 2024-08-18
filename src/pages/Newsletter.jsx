@@ -19,6 +19,8 @@ export const action = async ({ request }) => {
     return error;
   }
 };
+
+
 const Newsletter = () => {
   const form = useRef();
 
@@ -39,56 +41,69 @@ const Newsletter = () => {
       );
   };
   return (
-    <Form ref={form} onSubmit={sendEmail}>
-      <h4 style={{ textAlign: "center", marginBottom: "2rem" }}>Contact</h4>
-      <div className="form-row">
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className="form-input"
-          name="to_name"
-          id="name"
-          required
-        />
-      </div>
-      <div className="form-row">
-        <label htmlFor="email" className="form-label">
-          Email
-        </label>
-        <input
-          type="email"
-          name="from_name"
-          className="form-input"
-          id="email"
-          defaultValue="test@test.com"
-          required
-        />
-      </div>
-      <div className="form-row">
-        <label htmlFor="message" className="form-label">
-          Message
-        </label>
-        <textarea
-          type="message"
-          name="message"
-          className="form-input"
-          id="message"
-          rows="6"
-          required
-        />
-      </div>
-
-      <button
-        type="submit"
-        value="Send"
-        className="btn btn-block"
-        style={{ marginTop: "0.5rem" }}
+    <div className="flex justify-center m-6">
+      <Form
+        ref={form}
+        onSubmit={sendEmail}
+        className="w-full max-w-lg p-6 rounded-lg shadow-md"
       >
-        Send
-      </button>
-    </Form>
+        <h4
+          className="text-stone-300"
+          style={{ textAlign: "center", marginBottom: "2rem" }}
+        >
+          Contact
+        </h4>
+        <div className="">
+          <div className=" text-stone-200">
+            <label htmlFor="name" className="">
+              Name
+            </label>
+            <input
+              type="text"
+              className="w-full p-2 mt-1 rounded"
+              name="to_name"
+              id="name"
+              required
+            />
+          </div>
+          <div className="mt-6">
+            <label htmlFor="email" className="text-stone-200 font-xl">
+              Email
+            </label>
+            <input
+              type="email"
+              name="from_name"
+              className="w-full p-2 mt-1 rounded"
+              id="email"
+              defaultValue="test@test.com"
+              required
+            />
+          </div>
+          <div className="mt-6">
+            <label htmlFor="message" className="text-stone-200">
+              Message
+            </label>
+            <textarea
+              name="message"
+              className=" w-full p-2 mt-1 rounded"
+              id="message"
+              rows="6"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            value="Send"
+            className="mt-4 bg-orange-500 text-white py-1 px-4 text-sm rounded"
+          >
+            Send
+          </button>
+        </div>
+      </Form>
+    </div>
   );
 };
+
+
 export default Newsletter;

@@ -4,7 +4,7 @@ import Wrapper from "../assets/wrappers/CocktailCard";
 const CocktailCard = ({ image, name, id, info, glass }) => {
   return (
     <Wrapper>
-      <div className="img-container">
+      <div className="img-container ">
         <img src={image} alt={name} className="img" />
       </div>
       <div className="footer">
