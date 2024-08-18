@@ -60,7 +60,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <div className="bg-stone-800">
+    <div className="bg-stone-800 overflow-x-hidden">
       <section className="parallax relative">
         <div className="flex justify-center text-center absolute inset-0 flex-col items-center">
           <h1 className={textClass}>Private Bartending Service</h1>

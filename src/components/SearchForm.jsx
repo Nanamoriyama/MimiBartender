@@ -57,14 +57,37 @@ const SearchForm = ({ searchTerm }) => {
           className="form flex flex-col items-center"
           onSubmit={handleSubmit}
         >
-          <input
-            type="search"
-            name="search"
-            className="form-input mb-2"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button type="submit" className="btn">
+          <div className="relative w-full mb-2">
+            <input
+              type="search"
+              name="search"
+              className="w-full h-12 rounded-full pl-10 pr-4 border border-gray-200 focus:outline-none focus:border-indigo-500 placeholder-stone-200 shadow-md placeholder-gray-500 focus:placeholder-indigo-500 bg-transparent text-white"
+              placeholder="Type your drink..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <div className="absolute left-0 top-0 flex items-center justify-center h-full w-10">
+              <svg
+                className="w-6 h-6 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="border border-transparent text-white p-4 px-6 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-400 hover:to-indigo-500 transition-all duration-500 ease-in-out shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
             search
           </button>
         </form>
