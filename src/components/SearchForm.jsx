@@ -30,14 +30,18 @@ const SearchForm = ({ searchTerm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Search Term:", search); // 入力した検索語句を確認
+    console.log("Navigating to:", `/?search=${search}`);
     navigate(`/?search=${search}`);
-    // Scroll adjustment
 
     setTimeout(() => {
-      document
-        .getElementById("search-form")
-        .scrollIntoView({ behavior: "smooth" });
-    }, 100);
+      const formElement = document.getElementById("search-form");
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.warn("Form element not found");
+      }
+    }, 300); // 遅延時間を調整
   };
 
   const text = "What would you like to drink?";
