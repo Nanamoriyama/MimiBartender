@@ -4,8 +4,7 @@ import CocktailCard from "./CocktailCard";
 const CocktailList = ({ drinks }) => {
   console.log("Received drinks:", drinks); // デバッグ用ログ
 
-  // drinks.drinks を安全に取得
-  const drinkList = drinks || [];
+  const drinkList = Array.isArray(drinks) ? drinks : [];
 
   // データが空の場合の処理
   if (drinkList.length === 0) {

@@ -20,7 +20,7 @@ const CocktailCard = ({ image, name, id, info, glass }) => {
         <p className="text-gray-400 mb-4">{info}</p>
         <Link
           to={`/cocktail/${id}`}
-          className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="border border-transparent text-white p-4 px-6 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-pink-400 hover:to-indigo-500 transition-all duration-500 ease-in-out shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           details
         </Link>
